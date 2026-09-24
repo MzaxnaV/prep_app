@@ -1,0 +1,87 @@
+{
+  "name": "DILRSet",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the set was attempted"
+    },
+    "source": {
+      "type": "string",
+      "description": "Where the set came from e.g. CAT 2023 Slot 1, Cracku Sectional 4, AIMCAT2712"
+    },
+    "set_type": {
+      "type": "string",
+      "enum": [
+        "Linear Arrangement",
+        "Circular Arrangement",
+        "Grouping / Selection",
+        "Distribution / Allocation",
+        "Data Caselet",
+        "Graphs / Charts",
+        "Tables",
+        "Logical Puzzle",
+        "Games / Tournaments",
+        "Venn Diagrams",
+        "Quant-based DI",
+        "Hybrid / Mixed"
+      ],
+      "description": "Set archetype — the axis the heatmap is built on"
+    },
+    "perceived_difficulty": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Difficult"],
+      "description": "Intuition rating BEFORE solving. Vault method: 'What makes S easy?' — this column answers it."
+    },
+    "actual_difficulty": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Difficult"],
+      "description": "Rating AFTER solving. Gap vs perceived = calibration error, the root cause of bad set selection."
+    },
+    "triage_decision": {
+      "type": "string",
+      "enum": ["Attempted", "Skipped"],
+      "description": "The 60-second call: attempt or skip"
+    },
+    "triage_was_correct": {
+      "type": "boolean",
+      "description": "In hindsight, was the triage call right? Scores set selection separately from solving."
+    },
+    "time_seconds": {
+      "type": "number",
+      "description": "Time spent on the set in seconds"
+    },
+    "questions_total": {
+      "type": "number",
+      "description": "Questions in the set"
+    },
+    "questions_correct": {
+      "type": "number",
+      "description": "Questions answered correctly"
+    },
+    "solved_fully": {
+      "type": "boolean",
+      "default": false,
+      "description": "Was the set cracked completely (grid fully determined)"
+    },
+    "failure_mode": {
+      "type": "string",
+      "enum": [
+        "None",
+        "No Entry Point",
+        "Wrong Approach",
+        "Misread Constraint",
+        "Arithmetic Slip",
+        "Ran Out Of Time",
+        "Careless Marking"
+      ],
+      "description": "Primary reason it went wrong — different modes need different fixes"
+    },
+    "notes": {
+      "type": "string",
+      "description": "What the approach should have been; the pattern to remember"
+    }
+  },
+  "required": ["date", "set_type", "triage_decision"]
+}

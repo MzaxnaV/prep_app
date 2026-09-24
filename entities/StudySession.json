@@ -1,0 +1,76 @@
+{
+  "name": "StudySession",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the study session"
+    },
+    "time_block": {
+      "type": "string",
+      "description": "Time block label e.g. 7:00-7:30 VARC"
+    },
+    "exam": {
+      "type": "string",
+      "enum": [
+        "CFA",
+        "CAT",
+        "Both"
+      ],
+      "description": "Which exam this session is for"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Subject studied e.g. Fixed Income, DILR, VARC"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Specific topic within the subject"
+    },
+    "activity_type": {
+      "type": "string",
+      "enum": [
+        "New Material",
+        "Gap-Filling",
+        "Qbank Practice",
+        "Revision",
+        "Mock Analysis",
+        "Flashcards",
+        "Timed Practice",
+        "Sectional Test"
+      ],
+      "description": "Type of study activity"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Duration in minutes"
+    },
+    "questions_attempted": {
+      "type": "number",
+      "description": "Number of questions attempted"
+    },
+    "questions_correct": {
+      "type": "number",
+      "description": "Number of questions answered correctly"
+    },
+    "mock_id": {
+      "type": "string",
+      "description": "MockTest this session analysed. Set on 'Mock Analysis' sessions so the write-up is tied to the paper it is about."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes about the session"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this session was completed"
+    }
+  },
+  "required": [
+    "date",
+    "exam",
+    "subject"
+  ]
+}

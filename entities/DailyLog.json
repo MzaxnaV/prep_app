@@ -1,0 +1,59 @@
+{
+  "name": "DailyLog",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date"
+    },
+    "wake_time": {
+      "type": "string",
+      "description": "Actual wake time"
+    },
+    "sleep_time": {
+      "type": "string",
+      "description": "Actual sleep time"
+    },
+    "total_study_hours": {
+      "type": "number",
+      "description": "Total hours studied"
+    },
+    "cfa_hours": {
+      "type": "number",
+      "description": "Hours on CFA"
+    },
+    "cat_hours": {
+      "type": "number",
+      "description": "Hours on CAT"
+    },
+    "exercised": {
+      "type": "boolean",
+      "default": false,
+      "description": "Did exercise today"
+    },
+    "energy_level": {
+      "type": "number",
+      "description": "Energy level 1-5"
+    },
+    "focus_level": {
+      "type": "number",
+      "description": "Focus level 1-5"
+    },
+    "blocks_completed": {
+      "type": "number",
+      "description": "Number of study blocks completed out of planned"
+    },
+    "blocks_planned": {
+      "type": "number",
+      "description": "Number of study blocks planned"
+    },
+    "reflection": {
+      "type": "string",
+      "description": "End of day reflection"
+    }
+  },
+  "required": [
+    "date"
+  ]
+}

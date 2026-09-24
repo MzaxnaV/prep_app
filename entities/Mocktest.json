@@ -1,0 +1,102 @@
+{
+  "name": "MockTest",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the mock was taken"
+    },
+    "exam_type": {
+      "type": "string",
+      "enum": [
+        "CAT Full",
+        "CAT Sectional",
+        "CFA Full",
+        "CFA Qbank"
+      ],
+      "description": "Type of mock test"
+    },
+    "platform": {
+      "type": "string",
+      "description": "Platform used e.g. IMS SimCAT, TIME AIMCAT"
+    },
+    "section": {
+      "type": "string",
+      "enum": ["VARC", "DILR", "QA"],
+      "description": "Which section a CAT Sectional covered. Absent for full mocks."
+    },
+    "block_index": {
+      "type": "number",
+      "description": "Today's Plan block this mock was logged against, if any"
+    },
+    "overall_score": {
+      "type": "number",
+      "description": "Overall score"
+    },
+    "overall_percentile": {
+      "type": "number",
+      "description": "Overall percentile"
+    },
+    "varc_score": {
+      "type": "number",
+      "description": "VARC section score"
+    },
+    "varc_percentile": {
+      "type": "number",
+      "description": "VARC section percentile"
+    },
+    "dilr_score": {
+      "type": "number",
+      "description": "DILR section score"
+    },
+    "dilr_percentile": {
+      "type": "number",
+      "description": "DILR section percentile"
+    },
+    "quant_score": {
+      "type": "number",
+      "description": "Quant section score (CAT QA or CFA Quant)"
+    },
+    "quant_percentile": {
+      "type": "number",
+      "description": "Quant percentile"
+    },
+    "cfa_score_pct": {
+      "type": "number",
+      "description": "CFA mock score as percentage"
+    },
+    "cfa_score": {
+      "type": "number",
+      "description": "CFA mock raw score, entered from the report"
+    },
+    "sets_attempted": {
+      "type": "number",
+      "description": "Number of sets/questions attempted"
+    },
+    "sets_correct": {
+      "type": "number",
+      "description": "Number correct"
+    },
+    "time_analysis": {
+      "type": "string",
+      "description": "Time spent per section analysis"
+    },
+    "key_mistakes": {
+      "type": "string",
+      "description": "Key mistakes and learnings"
+    },
+    "strategy_notes": {
+      "type": "string",
+      "description": "Strategy notes for improvement"
+    },
+    "sets_skipped": {
+      "type": "string",
+      "description": "Which sets were skipped and why"
+    }
+  },
+  "required": [
+    "date",
+    "exam_type"
+  ]
+}

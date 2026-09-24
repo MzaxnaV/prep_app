@@ -1,0 +1,67 @@
+{
+  "name": "SubjectProgress",
+  "type": "object",
+  "properties": {
+    "exam": {
+      "type": "string",
+      "enum": [
+        "CFA",
+        "CAT"
+      ],
+      "description": "Which exam"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Subject name"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Not Started",
+        "In Progress",
+        "Gap-Filling",
+        "Revision",
+        "Complete"
+      ],
+      "description": "Current status"
+    },
+    "total_questions_done": {
+      "type": "number",
+      "default": 0,
+      "description": "Total questions completed"
+    },
+    "question_target": {
+      "type": "number",
+      "description": "Target number of questions"
+    },
+    "current_accuracy": {
+      "type": "number",
+      "description": "Current accuracy percentage"
+    },
+    "target_accuracy": {
+      "type": "number",
+      "description": "Target accuracy percentage"
+    },
+    "pending_topics": {
+      "type": "string",
+      "description": "Comma-separated list of pending topics"
+    },
+    "completed_topics": {
+      "type": "string",
+      "description": "Comma-separated list of completed topics"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "exam_weight": {
+      "type": "string",
+      "description": "Weight on the exam e.g. 13-17%"
+    }
+  },
+  "required": [
+    "exam",
+    "subject",
+    "status"
+  ]
+}

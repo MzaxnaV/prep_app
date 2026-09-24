@@ -1,0 +1,56 @@
+{
+  "name": "QAQuestion",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date attempted"
+    },
+    "source": {
+      "type": "string",
+      "description": "Where it came from e.g. Sarvesh Ch.4, CAT 2023 S2, Cracku Sectional 3"
+    },
+    "topic": {
+      "type": "string",
+      "description": "Topic within QA — the axis the heatmap is built on"
+    },
+    "area": {
+      "type": "string",
+      "enum": ["Arithmetic", "Algebra", "Number System", "Geometry", "Modern Math"],
+      "description": "Parent area. Arithmetic is ~40% of the section."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["Comfortable", "Unsure", "Uncomfortable"],
+      "description": "Intuition rating at the 15-second evaluate step, BEFORE solving. Vault taxonomy."
+    },
+    "result": {
+      "type": "string",
+      "enum": ["Correct", "Incorrect", "Skipped"],
+      "description": "Outcome"
+    },
+    "time_seconds": {
+      "type": "number",
+      "description": "Time spent in seconds. Over 180s on a wrong answer is an 'ego question'."
+    },
+    "error_type": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Concept Gap",
+        "Calculation Error",
+        "Misread Question",
+        "Ego Question",
+        "Ran Out Of Time",
+        "Careless Marking"
+      ],
+      "description": "Primary reason it went wrong — each needs a different fix"
+    },
+    "notes": {
+      "type": "string",
+      "description": "The shortcut, formula or approach that was missed"
+    }
+  },
+  "required": ["date", "topic", "result"]
+}

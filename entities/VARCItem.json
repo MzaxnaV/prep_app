@@ -1,0 +1,56 @@
+{
+  "name": "VARCItem",
+  "type": "object",
+  "properties": {
+    "date": { "type": "string", "format": "date", "description": "Date attempted" },
+    "source": { "type": "string", "description": "e.g. CAT 2023 S1, VARC1000, Aeon" },
+    "kind": {
+      "type": "string",
+      "enum": ["RC Passage", "VA Question"],
+      "description": "RC passages and VA questions fail for different reasons and are analysed separately"
+    },
+    "domain": {
+      "type": "string",
+      "description": "RC only — subject domain. Blind spots hide here."
+    },
+    "va_type": {
+      "type": "string",
+      "enum": ["Para Jumble", "Odd Sentence Out", "Para Summary"],
+      "description": "VA only. Para Jumble and Odd Sentence Out are TITA — no negative marking, so always attempt."
+    },
+    "passage_difficulty": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Difficult"],
+      "description": "RC only — how hard the passage was to read"
+    },
+    "question_difficulty": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Difficult"],
+      "description": "RC only — how hard the questions were. Vault insight: difficult passage tends to carry easy questions and vice versa."
+    },
+    "read_time_seconds": { "type": "number", "description": "RC only — time to read the passage once. Target ~2-2.5 min for ~500 words." },
+    "solve_time_seconds": { "type": "number", "description": "Time answering" },
+    "questions_total": { "type": "number", "description": "Questions in the set (RC) or 1 (VA)" },
+    "questions_correct": { "type": "number", "description": "Correct answers" },
+    "summary_written": {
+      "type": "boolean",
+      "default": false,
+      "description": "RC only — did you write the 3-line summary from memory before answering? Vault discipline."
+    },
+    "error_type": {
+      "type": "string",
+      "enum": [
+        "None",
+        "Comprehension Failure",
+        "Inference Error",
+        "Trap Option",
+        "Re-read Passage",
+        "Ran Out Of Time",
+        "Careless Marking"
+      ],
+      "description": "Primary reason marks were lost — each needs a different fix"
+    },
+    "notes": { "type": "string", "description": "What the author's actual argument was; what you missed" }
+  },
+  "required": ["date", "kind"]
+}
